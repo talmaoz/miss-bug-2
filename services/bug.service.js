@@ -63,7 +63,7 @@ function _makeId(length = 3) {
 function _createBugs() {
     bugs = require('../data/bug.json')
     if (bugs && bugs.length) return bugs;
-    return ['Fiag', 'Subali'].map(_createBug)
+    return JSON.parse(JSON.stringify(DEFAULT_BUG_LIST))
 }
 
 function _createBug(vendor) {
@@ -84,3 +84,50 @@ function _saveBugsToFile() {
 
     })
 }
+
+const DEFAULT_BUG_LIST = [
+    {
+        "_id": "abc123",
+        "title": "Cannot save a Car",
+        "description": "problem when clicking Save",
+        "severity": 1,
+        "createdAt": 1542107359454,
+        "creator": {
+            "_id": "xyz111",
+            "name": "Shahar"
+        }
+    },
+    {
+        "_id": "abc124",
+        "title": "Cannot MARRY a Car",
+        "description": "problem when explaining to the RABI",
+        "severity": 2,
+        "createdAt": 1542193759454,
+        "creator": {
+            "_id": "xyz112",
+            "name": "Tal"
+        }
+    },
+    {
+        "_id": "abc125",
+        "title": "Cannot change Car color YYY",
+        "description": "problem when clicking Color Pallete",
+        "severity": 2,
+        "createdAt": 1561809220793,
+        "creator": {
+            "_id": "xyz112",
+            "name": "Tal"
+        }
+    },
+    {
+        "title": "My New Bug",
+        "description": "dfsdf;lskjdf;lskdf",
+        "severity": 1,
+        "createdAt": 1561809206618,
+        "creator": {
+            "_id": "xyz112",
+            "name": "Tal"
+        },
+        "_id": "cvv"
+    }
+]
