@@ -12,14 +12,22 @@ export default {
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Vendor</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Created At</th>
+                    <th>Creator</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="bug in bugs">
                     <td>{{bug.id}}</td>
-                    <td>{{bug.vendor}}</td>
+                    <td>{{bug.title}}</td>
+                    <td>{{bug.description}}</td>
+                    <td>{{bug.severity}}</td>
+                    <td>{{bug.createdAt}}</td>
+                    <td>{{bug.creator.name}}</td>
                     <td>
                         <router-link :to="'/bugApp/'+bug.id">Details</router-link> |
                         <router-link :to="'/bugApp/edit/'+bug.id">Edit</router-link>

@@ -1,10 +1,7 @@
 const userService = require('../../services/user.service')
 const express = require('express')
-
 const router = express.Router()
 module.exports = router
-
-
 
 router.post('/login', (req, res)=>{
     const credentials = req.body;
@@ -15,7 +12,7 @@ router.post('/login', (req, res)=>{
         })
         .catch(err => {
             console.log(err);
-            res.status(401).send('Not Authorized')
+            res.status(401).send('Unauthorized')
         })
 })
 
