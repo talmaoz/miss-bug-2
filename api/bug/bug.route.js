@@ -3,20 +3,24 @@ const express = require('express')
 const router = express.Router()
 module.exports = router
 
-
 // Bug LIST
 router.get('/', (req, res) => {
-    // console.log('User is: ', req.session.user);
-
-    console.log('QUERY:', req.query);
-
     const filterBy = req.query;
-
     bugService.query(filterBy)
         .then(bugs => res.json(bugs))
 })
 
-
+// Bug Add
+router.post('/', (req, res) => {
+    if (!req.session.user) return res.status(403).send('Unauthenticated')
+    const bug = req.body;
+    bug.owner = req.session.user;
+    bugService.add(bug)
+        .then(bugWithId => res.json(bugWithId))
+        .catch(()=>{
+            res.status(500).send('Server ERROR: Could not add your bug.')
+        })
+})
 
 // Bug Single
 router.get('/:id', (req, res) => {
@@ -24,7 +28,7 @@ router.get('/:id', (req, res) => {
     bugService.getById(bugId)
     .then(bug => res.json(bug))
     .catch(()=>{
-        res.status(404).send('UNKNOWN BUG')
+        res.status(404).send('Unknown Bug.')
     })
 })
 
@@ -38,20 +42,6 @@ router.delete('/:id', (req, res) => {
     })
     .catch(()=>{
         res.status(500).send('Could Not Delete')
-    })
-})
-
-// Bug Add
-router.post('/', (req, res) => {
-
-    if (!req.session.user) return res.status(403).send('Not Authenticated')
-
-    const bug = req.body;
-    bug.owner = req.session.user;
-    bugService.add(bug)
-    .then(bugWithId => res.json(bugWithId))
-    .catch(()=>{
-        res.status(500).send('Could Not Add')
     })
 })
 
