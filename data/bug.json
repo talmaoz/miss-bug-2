@@ -24,13 +24,14 @@
   },
   {
     "_id": "abc125",
-    "title": "Cannot change Car color YYY",
+    "title": "Cannot change Car color ZZZ",
     "description": "problem when clicking Color Pallete",
     "severity": 2,
-    "createdAt": 1561809220793,
+    "createdAt": 1561910160487,
     "creator": {
       "_id": "xyz112",
-      "name": "Tal"
+      "userName": "Tal",
+      "isAdmin": false
     }
   },
   {
