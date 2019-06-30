@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "y1",
+    "userName": "yaron",
+    "pass": "123"
+  },
+  {
+    "_id": "y2",
+    "userName": "yolo",
+    "pass": "124",
+    "isAdmin": true
+  },
+  {
+    "userName": "tutu",
+    "pass": "tutu",
+    "_id": "iBn"
+  },
+  {
+    "userName": "muki",
+    "pass": "muki",
+    "_id": "GCy"
+  }
+]

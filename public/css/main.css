@@ -1,0 +1,9 @@
+body {
+    background-color: lightblue;
+}
+
+.log-in, .sign-up {
+    background-color: lightcyan;
+    padding: 10px;
+    margin: 10px;
+}
