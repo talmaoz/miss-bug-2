@@ -15,9 +15,9 @@ function login(credentials) {
         user.pass === credentials.pass)
 
     if (user) {
-        return Promise.resolve({_id : user._id, userName: user.userName});    
+        return Promise.resolve({_id : user._id, userName: user.userName, isAdmin: user.isAdmin});
     }
-    else return Promise.reject('Unknown');    
+    else return Promise.reject('Unknown');
 
 }
 

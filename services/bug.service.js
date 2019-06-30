@@ -85,14 +85,11 @@ function add(bug) {
     bugs.push(bug)
     return _saveBugsToFile().then(() => bug)
 }
-function remove(id, loggedinUserId) {
-    console.log('id = ', id, ', loggedinUserId = ', loggedinUserId)
+function remove(id, loggedinUser) {
     var bugIdx = bugs.findIndex(bug => {
-        console.log('bug._id = ', bug._id, ', bug.creator._id = ', bug.creator._id)
-        return bug._id === id && bug.creator._id === loggedinUserId
+        return bug._id === id && (bug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
     });
     if (bugIdx < 0) {
-        console.log('bugIdx<0')
         return Promise.reject('Unknow Bug');
     }
     bugs.splice(bugIdx, 1)

@@ -2,12 +2,14 @@
   {
     "_id": "xyz112",
     "userName": "Tal",
-    "pass": "123"
+    "pass": "123",
+    "isAdmin": false
   },
   {
     "_id": "xyz111",
     "userName": "Shahar",
-    "pass": "124"
+    "pass": "124",
+    "isAdmin": false
   },
   {
     "userName": "Yaron",
@@ -18,6 +20,7 @@
   {
     "userName": "muki",
     "pass": "321",
-    "_id": "GCy"
+    "_id": "GCy",
+    "isAdmin": false
   }
 ]
