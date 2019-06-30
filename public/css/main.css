@@ -7,3 +7,20 @@ body {
     padding: 10px;
     margin: 10px;
 }
+
+.bug-edit label{
+    display: block;
+    margin: 10px;
+}
+
+.bug-edit textarea{
+    display: block;
+}
+
+.bug-edit .edit-bug-title input{
+    width: 500px;
+}
+
+.bug-edit .edit-bug-severity input{
+    width: 35px;
+}

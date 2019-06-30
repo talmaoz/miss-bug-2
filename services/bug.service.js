@@ -1,5 +1,13 @@
 const fs = require('fs')
 
+module.exports = {
+    query,
+    getById,
+    remove,
+    add,
+    update
+}
+
 const DEFAULT_BUG_LIST = [
     {
         "_id": "abc123",
@@ -46,21 +54,9 @@ const DEFAULT_BUG_LIST = [
         "_id": "cvv"
     }
 ]
-
-
-
-module.exports = {
-    query,
-    getById,
-    remove,
-    add,
-    update
-}
-
-var bugs = _createBugs();
-
 const limit = 3;
 
+var bugs = _createBugs();
 
 function query(filterBy) {
 
@@ -73,18 +69,24 @@ function query(filterBy) {
     return Promise.resolve(fliteredBugs)
 }
 
-function update(bug) {
-    var bugIdx = bugs.findIndex(currBug => currBug.id === bug.id);
-    bugs.splice(bugIdx, 1, bug);
-    return _saveBugsToFile().then(() => bug)
+function update(bug, loggedinUser) {
+    var bugIdx = bugs.findIndex(currBug => {
+        return currBug._id === bug._id && (currBug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
+    });
+    if (bugIdx !== -1) {
+        bug.creator = loggedinUser
+        bugs.splice(bugIdx, 1, bug);
+        return _saveBugsToFile().then(() => bug)
+    }
+    return 'ERROR in UPDATE'
 }
-
 
 function add(bug) {
     bug.id = _makeId()
     bugs.push(bug)
     return _saveBugsToFile().then(() => bug)
 }
+
 function remove(id, loggedinUser) {
     var bugIdx = bugs.findIndex(bug => {
         return bug._id === id && (bug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
@@ -97,7 +99,7 @@ function remove(id, loggedinUser) {
 }
 
 function getById(id) {
-    var bug = bugs.find(bug => bug.id === id);
+    var bug = bugs.find(bug => bug._id === id);
     if (bug) return Promise.resolve(bug);
     else return Promise.reject('Unknown Bug');
 }

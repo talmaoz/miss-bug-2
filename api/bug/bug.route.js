@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     if (!req.session.user) return res.status(403).send('Unauthenticated')
     const bug = req.body;
-    bug.owner = req.session.user;
+    bug.creator = req.session.user;
     bugService.add(bug)
         .then(bugWithId => res.json(bugWithId))
         .catch(()=>{
@@ -49,7 +49,7 @@ router.delete('/:id', (req, res) => {
 // Bug Edit
 router.put('/:id', (req, res) => {
     const bug = req.body;
-    bugService.update(bug)
+    bugService.update(bug, req.session.user)
     .then(bug => res.json(bug))
     .catch(()=>{
         res.status(500).send('Could Not Edit')

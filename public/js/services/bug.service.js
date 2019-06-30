@@ -23,8 +23,8 @@ function remove(bugId) {
         })
 }
 function save(bug) {
-    if (bug.id) {
-        return axios.put(`/api/bug/${bug.id}`, bug)
+    if (bug._id) {
+        return axios.put(`/api/bug/${bug._id}`, bug)
         .then(res => res.data)
     } else {
         return axios.post(`/api/bug`, bug)
