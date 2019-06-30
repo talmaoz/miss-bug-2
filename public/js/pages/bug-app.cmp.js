@@ -22,16 +22,16 @@ export default {
             </thead>
             <tbody>
                 <tr v-for="bug in bugs">
-                    <td>{{bug.id}}</td>
+                    <td>{{bug._id}}</td>
                     <td>{{bug.title}}</td>
                     <td>{{bug.description}}</td>
                     <td>{{bug.severity}}</td>
                     <td>{{bug.createdAt}}</td>
                     <td>{{bug.creator.name}}</td>
                     <td>
-                        <router-link :to="'/bugApp/'+bug.id">Details</router-link> |
-                        <router-link :to="'/bugApp/edit/'+bug.id">Edit</router-link>
-                        <button @click="removeBug(bug.id)">x</button>
+                        <router-link :to="'/bugApp/'+bug._id">Details</router-link> |
+                        <router-link :to="'/bugApp/edit/'+bug._id">Edit</router-link>
+                        <button @click="removeBug(bug._id)">x</button>
                     </td>
                 </tr>
             </tbody>
@@ -59,7 +59,7 @@ export default {
             bugService.remove(bugId)
                 .then(res => {
                     console.log('DELETE SUCCESFULY');
-                    const idx = this.bugs.findIndex(bug => bug.id === bugId)
+                    const idx = this.bugs.findIndex(bug => bug._id === bugId)
                     this.bugs.splice(idx, 1)
                     // swal()
                 }).

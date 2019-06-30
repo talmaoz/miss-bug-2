@@ -1,74 +1,46 @@
 [
   {
-    "vendor": "YC2222",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "Rc5"
+    "_id": "abc123",
+    "title": "Cannot save a Car",
+    "description": "problem when clicking Save",
+    "severity": 1,
+    "createdAt": 1542107359454,
+    "creator": {
+      "_id": "xyz111",
+      "name": "Shahar"
+    }
   },
   {
-    "vendor": "ss11",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "xsx"
+    "_id": "abc124",
+    "title": "Cannot MARRY a Car",
+    "description": "problem when explaining to the RABI",
+    "severity": 2,
+    "createdAt": 1542193759454,
+    "creator": {
+      "_id": "xyz112",
+      "name": "Tal"
+    }
   },
   {
-    "vendor": "ss22",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "dcw"
+    "_id": "abc125",
+    "title": "Cannot change Car color YYY",
+    "description": "problem when clicking Color Pallete",
+    "severity": 2,
+    "createdAt": 1561809220793,
+    "creator": {
+      "_id": "xyz112",
+      "name": "Tal"
+    }
   },
   {
-    "vendor": "Poshka",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
+    "title": "My New Bug",
+    "description": "dfsdf;lskjdf;lskdf",
+    "severity": 1,
+    "createdAt": 1561809206618,
+    "creator": {
+      "_id": "xyz112",
+      "name": "Tal"
     },
-    "id": "pooo3"
-  },
-  {
-    "vendor": "Poshka",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "pooo"
-  },
-  {
-    "vendor": "Poshka",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "po1"
-  },
-  {
-    "vendor": "Poshka2",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "po2"
-  },
-  {
-    "vendor": "Poshka3",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "po3"
-  },
-  {
-    "vendor": "Poshka4",
-    "owner": {
-      "_id": "y1",
-      "userName": "yaron"
-    },
-    "id": "po4"
+    "_id": "cvv"
   }
 ]
