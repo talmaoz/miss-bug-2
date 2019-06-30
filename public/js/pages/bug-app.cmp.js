@@ -35,8 +35,8 @@ export default {
                     </td>
                 </tr>
             </tbody>
-            <button @click="changePage(1)">Next</button>
             <button @click="changePage(-1)">Prev</button>
+            <button @click="changePage(1)">Next</button>
         </table>
     </section>
     `,

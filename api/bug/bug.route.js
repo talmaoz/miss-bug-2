@@ -34,8 +34,10 @@ router.get('/:id', (req, res) => {
 
 // Bug Delete
 router.delete('/:id', (req, res) => {
+    console.log('req.session = ', req.session)
     if (!req.session.user) return res.status(403).send('Not Authenticated')
     const bugId = req.params.id
+
     bugService.remove(bugId, req.session.user._id)
     .then(()=>{
         res.json({})
