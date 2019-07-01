@@ -17,7 +17,8 @@ const DEFAULT_BUG_LIST = [
         "createdAt": 1542107359454,
         "creator": {
             "_id": "xyz111",
-            "name": "Shahar"
+            "name": "Shahar",
+            "isAdmin": false
         }
     },
     {
@@ -28,7 +29,8 @@ const DEFAULT_BUG_LIST = [
         "createdAt": 1542193759454,
         "creator": {
             "_id": "xyz112",
-            "name": "Tal"
+            "name": "Tal",
+            "isAdmin": false
         }
     },
     {
@@ -39,7 +41,8 @@ const DEFAULT_BUG_LIST = [
         "createdAt": 1561809220793,
         "creator": {
             "_id": "xyz112",
-            "name": "Tal"
+            "name": "Tal",
+            "isAdmin": false
         }
     },
     {
@@ -49,7 +52,8 @@ const DEFAULT_BUG_LIST = [
         "createdAt": 1561809206618,
         "creator": {
             "_id": "xyz112",
-            "name": "Tal"
+            "name": "Tal",
+            "isAdmin": false
         },
         "_id": "cvv"
     }
@@ -70,13 +74,11 @@ function query(filterBy) {
 }
 
 function update(bug, loggedinUser) {
-    console.log('loggedinUser (server services) = ', loggedinUser)
     var bugIdx = bugs.findIndex(currBug => {
         return (
             currBug._id === bug._id && (currBug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
         )
     });
-    console.log('bugIdx= ', bugIdx)
     if (bugIdx !== -1) {
         if (!loggedinUser.isAdmin) bug.creator = loggedinUser
         bugs.splice(bugIdx, 1, bug);
