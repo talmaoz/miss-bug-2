@@ -10,19 +10,17 @@ export default {
 var loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'))
 
 function getLoggedinUser() {
+    console.log('public user service - loggedInUser = ', loggedInUser)
     return loggedInUser;
 }
 
 function login(credentials) {
     return axios.post('/api/user/login', credentials)
         .then(res => {
-            console.log('THENNNNN');
             return _handleSuccessfulRegister(res.data)
         })
-        // .catch(err => {
-        //     console.log('CATCH', err);
-        // })
 }
+
 function signup(userData) {
     return axios.post('/api/user/signup', userData)
         .then(res => {

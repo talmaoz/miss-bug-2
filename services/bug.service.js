@@ -70,11 +70,12 @@ function query(filterBy) {
 }
 
 function update(bug, loggedinUser) {
+
     var bugIdx = bugs.findIndex(currBug => {
         return currBug._id === bug._id && (currBug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
     });
     if (bugIdx !== -1) {
-        bug.creator = loggedinUser
+        if (!loggedinUser.isAdmin) bug.creator = loggedinUser
         bugs.splice(bugIdx, 1, bug);
         return _saveBugsToFile().then(() => bug)
     }

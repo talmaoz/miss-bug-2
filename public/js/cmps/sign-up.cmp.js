@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="sign-up">
             <form @submit.prevent="signup">
-                <input type="text" v-model="user.userName" placeholder="Your username">
+                <input type="text" v-model="user.name" placeholder="Your name">
                 <input type="password" v-model="user.pass" placeholder="Your password">
                 <input type="password" v-model="user.repass" placeholder="Your password again">
                 <button>Signup</button>
@@ -16,7 +16,7 @@ export default {
     `,
     data(){
         return {
-            user: {userName: '', pass: '', repass: ''}
+            user: {name: '', pass: '', repass: ''}
         }
     },
     methods: {

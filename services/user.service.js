@@ -1,4 +1,3 @@
-
 const fs = require('fs')
 
 var users = require('../data/user.json')
@@ -8,14 +7,13 @@ module.exports = {
     signup
 }
 
-
 function login(credentials) {
     const user = users.find(user =>
-        user.userName === credentials.userName &&
+        user.name === credentials.name &&
         user.pass === credentials.pass)
 
     if (user) {
-        return Promise.resolve({_id : user._id, userName: user.userName, isAdmin: user.isAdmin});
+        return Promise.resolve({_id : user._id, name: user.name, isAdmin: user.isAdmin});
     }
     else return Promise.reject('Unknown');
 

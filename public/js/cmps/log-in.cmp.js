@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="log-in">
             <form @submit.prevent="login">
-                <input type="text" v-model="user.userName" placeholder="Your username">
+                <input type="text" v-model="user.name" placeholder="Your name">
                 <input type="password" v-model="user.pass" placeholder="Your password">
                 <button>Login</button>
             </form>
@@ -15,18 +15,16 @@ export default {
     `,
     data(){
         return {
-            user: {userName: '', pass: ''}
+            user: {name: '', pass: ''}
         }
     },
     methods: {
         login() {
-            console.log('Login', this.user)
+            console.log('Logged in: ', this.user)
             userService.login(this.user)
                 .then(user => {
                     this.$router.push('/bugApp')
                 })
         }
     }
-
-
 }

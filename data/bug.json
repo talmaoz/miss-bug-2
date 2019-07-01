@@ -12,14 +12,14 @@
   },
   {
     "_id": "abc124",
-    "title": "Cannot MARRY a Car",
+    "title": "Cannot MARRY a Car X",
     "description": "problem when explaining to the RABI",
     "severity": 2,
-    "createdAt": 1561909989953,
+    "createdAt": 1561910260125,
     "creator": {
-      "_id": "xyz112",
-      "userName": "Tal",
-      "isAdmin": false
+      "_id": "iBn",
+      "name": "Tal",
+      "isAdmin": true
     }
   },
   {
@@ -30,7 +30,7 @@
     "createdAt": 1561910160487,
     "creator": {
       "_id": "xyz112",
-      "userName": "Tal",
+      "name": "Tal",
       "isAdmin": false
     }
   },

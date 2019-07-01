@@ -5,10 +5,9 @@ import eventBus, {USER_LOGIN} from '../eventBus.js'
 export default {
     template: `
         <header>
-        
         <h1>Miss Bug</h1>
         <div v-if="user">
-            {{user.userName}}
+            {{user.name}}
             <button @click="logout">Logout</button>
         </div>
         <nav>
@@ -37,6 +36,7 @@ export default {
             
         },
         reloadUser() {
+            console.log('this.user (app-header) = ', this.user)
             this.user = userService.getLoggedinUser();
         }
     }

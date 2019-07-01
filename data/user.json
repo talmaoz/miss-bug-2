@@ -1,24 +1,24 @@
 [
   {
     "_id": "xyz112",
-    "userName": "Tal",
+    "name": "Tal",
     "pass": "123",
     "isAdmin": false
   },
   {
     "_id": "xyz111",
-    "userName": "Shahar",
+    "name": "Shahar",
     "pass": "124",
     "isAdmin": false
   },
   {
-    "userName": "Yaron",
+    "name": "Yaron",
     "pass": "123",
     "_id": "iBn",
     "isAdmin": true
   },
   {
-    "userName": "muki",
+    "name": "muki",
     "pass": "321",
     "_id": "GCy",
     "isAdmin": false
