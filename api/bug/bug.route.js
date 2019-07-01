@@ -49,6 +49,13 @@ router.delete('/:id', (req, res) => {
 // Bug Edit
 router.put('/:id', (req, res) => {
     const bug = req.body;
+    console.log
+    (
+        '\n\nbug.route: req.body =\n', req.body,
+        '\n\nbug = ', bug,
+        '\n\nreq.session =\n', req.session
+    )
+
     bugService.update(bug, req.session.user)
     .then(bug => res.json(bug))
     .catch(()=>{

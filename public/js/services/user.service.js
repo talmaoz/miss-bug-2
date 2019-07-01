@@ -11,7 +11,8 @@ var loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'))
 
 function getLoggedinUser() {
     console.log('public user service - loggedInUser = ', loggedInUser)
-    return loggedInUser;
+    loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'))
+    return loggedInUser
 }
 
 function login(credentials) {

@@ -70,16 +70,19 @@ function query(filterBy) {
 }
 
 function update(bug, loggedinUser) {
-
+    console.log('loggedinUser (server services) = ', loggedinUser)
     var bugIdx = bugs.findIndex(currBug => {
-        return currBug._id === bug._id && (currBug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
+        return (
+            currBug._id === bug._id && (currBug.creator._id === loggedinUser._id || loggedinUser.isAdmin)
+        )
     });
+    console.log('bugIdx= ', bugIdx)
     if (bugIdx !== -1) {
         if (!loggedinUser.isAdmin) bug.creator = loggedinUser
         bugs.splice(bugIdx, 1, bug);
         return _saveBugsToFile().then(() => bug)
     }
-    return 'ERROR in UPDATE'
+    return Promise.reject('ERROR in UPDATE')
 }
 
 function add(bug) {

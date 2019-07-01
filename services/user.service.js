@@ -8,15 +8,17 @@ module.exports = {
 }
 
 function login(credentials) {
-    const user = users.find(user =>
-        user.name === credentials.name &&
-        user.pass === credentials.pass)
+    const user = users.find(user => {
+        return user.name === credentials.name && user.pass === credentials.pass
+    });
 
     if (user) {
-        return Promise.resolve({_id : user._id, name: user.name, isAdmin: user.isAdmin});
+        return Promise.resolve({
+            _id : user._id,
+            name: user.name,
+            isAdmin: user.isAdmin});
     }
-    else return Promise.reject('Unknown');
-
+    else return Promise.reject('Login failed.');
 }
 
 function signup(user) {
@@ -26,10 +28,6 @@ function signup(user) {
     return Promise.resolve(user);
 
 }
-
-
-
-
 
 function _saveUsersToFile() {
     fs.writeFileSync('data/user.json', JSON.stringify(users, null, 2));
